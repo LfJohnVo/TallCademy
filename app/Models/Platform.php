@@ -9,6 +9,9 @@ class Platform extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+
     //relacion uno a muchos
     public function lessons(){
         return $this->hasMany('App\Models\Lesson');

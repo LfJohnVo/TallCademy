@@ -9,6 +9,9 @@ class Resource extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
+
     public function resourceable(){
         return $this->morphTo();
     }
