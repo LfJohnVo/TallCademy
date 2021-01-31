@@ -14,8 +14,29 @@ class Course extends Model
     const PUBLICADO = 3;
 
     //Relacion uno a muchos
-    public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany('App\Models\Review');
+    }
+
+    public function requirements()
+    {
+        return $this->hasMany('App\Models\Requirement');
+    }
+
+    public function goals()
+    {
+        return $this->hasMany('App\Models\Goal');
+    }
+
+    public function aundiences()
+    {
+        return $this->hasMany('App\Models\Audience');
+    }
+
+    public function sections()
+    {
+        return $this->hasMany('App\Models\Section');
     }
 
     //Relacion uno a muchos inversa
@@ -24,15 +45,18 @@ class Course extends Model
         return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function level(){
+    public function level()
+    {
         return $this->belongsTo('App\Models\level');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo('App\Models\category');
     }
 
-    public function price(){
+    public function price()
+    {
         return $this->belongsTo('App\Models\price');
     }
 

@@ -9,7 +9,8 @@ class level extends Model
 {
     use HasFactory;
 
-    public function courses(){
+    public function courses()
+    {
         return $this->hasMany('App\Models\Course');
     }
 }
