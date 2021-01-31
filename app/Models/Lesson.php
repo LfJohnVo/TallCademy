@@ -10,21 +10,42 @@ class Lesson extends Model
     use HasFactory;
 
     //Relacion uno a uno
-    public function description(){
+    public function description()
+    {
         $this->hasOne('App\Models\Description');
     }
 
     //relacion uno a muchos inversa
-    public function section(){
+    public function section()
+    {
         return $this->belongsTo('App\Models\Section');
     }
 
-    public function platform(){
+    public function platform()
+    {
         return $this->belongsTo('App\Models\Platform');
     }
 
     //relacion muchos a muchos
-    public function users(){
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User');
+    }
+
+    //Relacion uno a uno polimorfica
+    public function resource()
+    {
+        return $this->morphOne('App\Models\Resource', 'resourceable');
+    }
+
+    //relacion uno a muchos polimorfica
+    public function comments()
+    {
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
+
+    public function reactions()
+    {
+        return $this->morphMany('App\Models\Reaction', 'reactionable');
     }
 }
