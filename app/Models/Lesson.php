@@ -12,42 +12,39 @@ class Lesson extends Model
     protected $guarded = ['id'];
 
     //Relacion uno a uno
-    public function description()
-    {
-        $this->hasOne('App\Models\Description');
+
+    public function description(){
+        return $this->hasOne('App\Models\Description');
     }
 
-    //relacion uno a muchos inversa
-    public function section()
-    {
+    //Relacion uno a muchos inversa
+    public function section(){
         return $this->belongsTo('App\Models\Section');
     }
 
-    public function platform()
-    {
+    public function platform(){
         return $this->belongsTo('App\Models\Platform');
     }
 
-    //relacion muchos a muchos
-    public function users()
-    {
+    //Relacion muchos a muchos
+    public function users(){
         return $this->belongsToMany('App\Models\User');
     }
 
     //Relacion uno a uno polimorfica
-    public function resource()
-    {
+
+    public function resource(){
         return $this->morphOne('App\Models\Resource', 'resourceable');
     }
 
-    //relacion uno a muchos polimorfica
-    public function comments()
-    {
+    //Relacion uno a muchos polimorfica
+
+    public function comments(){
         return $this->morphMany('App\Models\Comment', 'commentable');
     }
 
-    public function reactions()
-    {
-        return $this->morphMany('App\Models\Reaction', 'reactionable');
+    public function reactions(){
+    return $this->morphMany('App\Models\Reaction', 'reactionable');
     }
+
 }

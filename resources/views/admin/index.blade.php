@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Administración')
+@section('title', 'Coders Free')
 
 @section('content_header')
-    <h1>TallCademy Panel</h1>
+    <h1>Coders Free</h1>
 @stop
 
 @section('content')
