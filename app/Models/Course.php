@@ -10,10 +10,19 @@ class Course extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'status'];
+    protected $withCount = ['students', 'reviews'];
 
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
+
+    public function getRatingAttribute(){
+        if ($this->reviews_count){
+            return round($this->reviews->avg('rating'), 2);
+        }else{
+            return 5;
+        }
+    }
 
     //Relacion uno a muchos
 
@@ -41,7 +50,7 @@ class Course extends Model
     public function teacher(){
         return $this->belongsTo('App\Models\User', 'user_id');
     }
-    
+
     public function level(){
         return $this->belongsTo('App\Models\Level');
     }
