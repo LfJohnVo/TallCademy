@@ -11,9 +11,9 @@ class Description extends Model
 
     protected $guarded = ['id'];
 
-
     //relacion uno a uno inversa
+
     public function lesson(){
-        return $this->belongsTo('App\Models\Lesson');;
+        return $this->belongsTo('App\Models\Lesson');
     }
 }
