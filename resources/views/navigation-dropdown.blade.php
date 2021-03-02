@@ -27,13 +27,13 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @foreach ($nav_links as $nav_link)
-                    
+
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-nav-link>
 
                     @endforeach
-                   
+
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                                     </div>
                                 </button>
                             @endif
-                            
+
                         </x-slot>
 
                         <x-slot name="content">
@@ -124,8 +124,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('login') }}" class="inline-block px-6 mr-4 py-2 text-xs font-medium leading-6 text-center text-pink-500 uppercase transition bg-transparent border-2 border-pink-500 rounded-full ripple hover:bg-pink-100 focus:outline-none">Login</a>
+                    <a href="{{ route('register') }}" class="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-indigo-700 rounded shadow ripple hover:shadow-lg hover:bg-blue-800 focus:outline-none">Register</a>
                 @endauth
             </div>
 
@@ -146,13 +146,13 @@
         <div class="pt-2 pb-3 space-y-1">
 
             @foreach ($nav_links as $nav_link)
-            
+
                 <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                     {{ $nav_link['name'] }}
                 </x-jet-responsive-nav-link>
 
             @endforeach
-     
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -238,5 +238,5 @@
 
         @endauth
     </div>
-    
+
 </nav>
